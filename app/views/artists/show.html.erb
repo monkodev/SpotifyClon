@@ -39,20 +39,21 @@
       <h2><%= @artists.name%></h2>
     </div>
     <div class="row">
-      <h4>Albums ()</h4>
+      <h4>Albums (<%=@artists.albums.count %>)</h4>
     </div>
     <div class="row">
-      <div class="col-md-2"> 
-        <% @albums.each do |albums| %>
+      <% al=@artists.albums %>
+        <% al.each do |a| %>
+      <div class="col-md-2">       
           <div class="thumbnail">
-            <img src="<%= albums.image_url%>" alt="<%= albums.name %>"width="100%" height="50">
+            <img src="<%= a.image_url%>" alt="<%= a.name %>"width="80%" height="50">
             <div class="caption text-center">
-              <h3><%= albums.name %></h3>
-              <h4><%= albums.released_at %></h4>
+              <h5><%= a.name %></h5>
+              <h6><%= a.released_at %></h6>
             </div>
-          </div> 
-          <% end %>
+          </div>           
       </div>
+      <% end %>
     </div>
     </div>
     <div class="col-md-4"> 
